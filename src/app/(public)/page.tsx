@@ -16,7 +16,7 @@ export default function Home() {
               Premium Ship Chandling Solutions
             </h1>
             <p className="text-xl text-ocean-200 mb-8 leading-relaxed">
-              Trusted by maritime professionals worldwide. We provide high-quality supplies and equipment for vessel maintenance, safety, and provisioning. From rigging to provisions, we've got your fleet covered.
+              Trusted by maritime professionals worldwide. We provide high-quality supplies and equipment for vessel maintenance, safety, and provisioning. From rigging to provisions, we&apos;ve got your fleet covered.
             </p>
             <div className="flex gap-4 flex-wrap">
               <button className="bg-ocean-500 hover:bg-ocean-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
