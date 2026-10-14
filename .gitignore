@@ -12,6 +12,7 @@ out/
 
 # Production
 build
+shared-host-upload.zip
 
 # Misc
 .DS_Store

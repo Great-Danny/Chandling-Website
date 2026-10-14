@@ -2,7 +2,44 @@
 
 ## Quick Deployment (Choose One)
 
-### 1. **Vercel (Easiest - 2 minutes)** ⭐⭐⭐
+### 1. **Standard cPanel Shared Hosting**
+
+Best for: Traditional shared hosting without Node.js
+
+This project includes a standalone HTML/CSS/JavaScript site in `public/`. It
+can run on standard Apache/cPanel hosting without Node.js or a Next.js server.
+
+1. Open cPanel **File Manager** and open your domain's document root (usually
+   `public_html`; addon domains may use a different folder).
+2. Upload the **contents** of the project's `public/` folder into that
+   document root. Put `index.html` directly in `public_html`, not inside a
+   nested `public` folder.
+3. Keep the `css/`, `js/`, and `images/` folders alongside the HTML files.
+4. Visit your domain and test the catalog, filters, mobile menu, and other
+   pages.
+
+You can upload the contents of `public/` using FTP/SFTP instead of cPanel File
+Manager. Do not upload `.git`, `node_modules`, `.next`, or the Next.js source
+files for this static hosting option.
+
+To create a ZIP for cPanel, run this command from the project folder in
+PowerShell:
+
+```powershell
+Compress-Archive -Path public\* -DestinationPath shared-host-upload.zip -Force
+```
+
+Upload `shared-host-upload.zip` to the document root and extract it there.
+The archive puts `index.html` and the asset folders directly at its root.
+
+The login, cart, favorites, and dashboard examples currently use browser-side
+JavaScript/local storage. Static hosting does not provide real user accounts,
+shared order storage, payment processing, or message delivery; those features
+need a server-side application and backend services.
+
+---
+
+### 2. **Vercel (Easiest - 2 minutes)** ⭐⭐⭐
 
 Best for: Production, auto-deploys, always free
 
@@ -27,7 +64,7 @@ vercel
 
 ---
 
-### 2. **GitHub Pages (Free Forever)**
+### 3. **GitHub Pages (Free Forever)**
 
 Best for: Free static hosting with Git versioning
 
@@ -55,7 +92,7 @@ git push -u origin main
 
 ---
 
-### 3. **Netlify (Drag & Drop)**
+### 4. **Netlify (Drag & Drop)**
 
 Best for: Simplicity, free SSL, great UI
 
@@ -71,7 +108,7 @@ netlify deploy
 
 ---
 
-### 4. **AWS S3 + CloudFront**
+### 5. **AWS S3 + CloudFront**
 
 Best for: Speed, enterprise scale, global CDN
 
@@ -95,13 +132,13 @@ aws s3 sync . s3://limani-supply-2024 --delete
 
 ---
 
-### 5. **Traditional FTP Hosting**
+### 6. **Traditional FTP Hosting**
 
 Best for: Budget hosting, shared servers
 
-1. Get hosting with FTP access (Bluehost, Hostinger, GoDaddy)
-2. Connect via FTP client (FileZilla)
-3. Upload all files to `/public_html`
+1. Get hosting with FTP/SFTP access (Bluehost, Hostinger, GoDaddy, or another cPanel provider).
+2. Connect via FTP client (FileZilla).
+3. Upload the contents of `public/` to your domain's document root, usually `/public_html`.
 
 ✅ **Live URL:** `https://yourdomain.com`
 
@@ -173,12 +210,10 @@ vercel
 ## What Gets Deployed?
 
 ```
-✅ All HTML files (index.html, catalog.html, etc.)
-✅ CSS files (styles.css, responsive.css)
-✅ JavaScript files (main.js, catalog.js, dashboard.js)
-✅ All assets and images
+✅ Standard shared hosting: contents of `public/` (HTML, CSS, JavaScript, and images)
+✅ Vercel: full repository (Next.js source and public assets)
 ❌ .git folder (not deployed)
-❌ node_modules (not needed - pure vanilla code!)
+❌ node_modules (installed by the build platform when needed)
 ```
 
 ---
